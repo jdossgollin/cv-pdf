@@ -1,0 +1,23 @@
+\input{header.tex} % Preamble in separate file
+
+
+\begin{document}
+\makecvtitle
+
+\input{education.tex} % education section
+\input{interests.tex} % research interestes
+\input{experience.tex} % experience
+\input{skills.tex} % skills (language and computer)
+\input{awards.tex} % honors and awards
+
+
+% Publications
+\nocite{*} % count all pubs as cited
+\printbibheading
+\bibbycategory
+
+\vfill
+Last updated on \today
+
+%---------END-----------------------
+\end{document}

@@ -1,0 +1,86 @@
+\documentclass[11pt,letterpaper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}  % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+\usepackage[sc]{mathpazo} %palatino
+%\linespread{1.05}
+
+\usepackage{siunitx} % for numbers
+
+%\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+\usepackage[utf8]{inputenc}% character
+
+\usepackage[scale=0.825]{geometry}% adjust the page margins
+\setlength{\hintscolumnwidth}{3.3cm}  %  width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}  % force the width allocated to your name and avoid line breaks
+\usepackage{csquotes}
+%Create the LyX symbol
+\newcommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%---------------------Bibliography and BiBLaTeX--------------------
+% Use BibLaTeX
+\usepackage[backend=biber,
+	sorting=ynt,
+	url=false,
+	doi=true,
+	defernumbers=true,
+	maxnames=99]{biblatex}
+
+\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}
+
+\makeatletter
+
+% Print labelnumber as actual number, plus item total, minus one
+\newrobustcmd{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{bbx@itemtotal}+1-#1\relax}
+
+% Initialize category counters
+\def\bbx@initcategory#1{\csnumgdef{bbx@count@#1}{0}}
+\forlistloop{\bbx@initcategory}{\blx@categories}
+
+% Increment category counters
+\def\bbx@countcategory#1{%
+  \ifentrytype{#1}
+    {\csnumgdef{bbx@count@#1}{\csuse{bbx@count@#1}+1}%
+     \addtocategory{#1}{\thefield{entrykey}}%
+     \listbreak}
+    {}}
+\AtDataInput{\forlistloop{\bbx@countcategory}{\blx@categories}}
+
+% Modify \bibbycategory to set item total
+\patchcmd{\blx@bibcategory}
+  {\blx@key@heading{#1}}
+  {\blx@key@heading{#1}%
+   \csnumdef{blx@labelnumber@\the\c@refsection}{0}%
+   \csnumgdef{bbx@itemtotal}{\csuse{bbx@count@#1}}}
+  {}{}
+
+\makeatother
+\DeclareBibliographyCategory{unpublished}
+\DeclareBibliographyCategory{article}
+\DeclareBibliographyCategory{misc}
+\DeclareBibliographyCategory{inproceedings}
+
+
+\defbibheading{bibliography}{\section*{Publications and Presentations}}
+\defbibheading{unpublished}{\subsection*{Articles In Review}}
+\defbibheading{article}{\subsection*{Journal Articles}}
+\defbibheading{misc}{\subsection*{Non-Peer Reviewed Papers}}
+\defbibheading{inproceedings}{\subsection*{Conference Papers}}
+
+\addbibresource{MyPapers.bib}
+
+%------------------------ personal data -------------------------------------
+\name{James}{Doss-Gollin}
+%\title{Curriculum Vitae}
+%\address{62 Anderson St}{New Haven, CT 06511}{} % optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{+1~(203)~494~9408} 
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+\email{ james.doss-gollin@columbia.edu}
+\homepage{www.jamesdossgollin.me}
+%\extrainfo{additional information} 
+%\photo[64pt][0.4pt]{picture}   % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}          % optional, remove / comment the line if not wanted

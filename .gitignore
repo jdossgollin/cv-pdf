@@ -8,3 +8,5 @@
 *.xml
 *.bcf
 *.backup
+.DS_Store
+.Rhistory

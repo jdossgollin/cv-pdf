@@ -19,10 +19,17 @@
 %Create the LyX symbol
 \newcommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
 
+% Ensure page numbers
+\usepackage{lastpage}
+\rfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of \pageref{LastPage}}}
+
 %---------------------Bibliography and BiBLaTeX--------------------
 % Use BibLaTeX
 \usepackage[backend=biber,
-    sorting=ynt,defernumbers]{biblatex}
+    sorting=ynt,
+    defernumbers,
+    doi=true,
+    url=false]{biblatex}
 
 \defbibheading{bibliography}{\section*{Publications and Presentations}}
 \defbibheading{unpublished}{\subsection*{Articles In Review}}

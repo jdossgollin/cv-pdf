@@ -4,19 +4,26 @@
 \moderncvstyle{classic}  % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{blue} % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 
+\usepackage[utf8]{inputenc}% character encoding
+
+% Appearance
+\usepackage[scale=0.85]{geometry}% adjust the page margins
 \usepackage[sc]{mathpazo} %palatino
 %\linespread{1.05}
 
+
+% Packages
 \usepackage{siunitx} % for numbers
 
-%\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
-\usepackage[utf8]{inputenc}% character
 
-\usepackage[scale=0.825]{geometry}% adjust the page margins
+
+
 \setlength{\hintscolumnwidth}{3.3cm}  %  width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}  % force the width allocated to your name and avoid line breaks
 \usepackage{csquotes}
-%Create the LyX symbol
+
+
+% Custom Macros
 \newcommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
 
 % Ensure page numbers
@@ -29,11 +36,12 @@
     sorting=ynt,
     defernumbers,
     doi=true,
-    url=false]{biblatex}
+    url=false,
+    maxbibnames=99]{biblatex}
 
 \defbibheading{bibliography}{\section*{Publications and Presentations}}
 \defbibheading{unpublished}{\subsection*{Articles In Review}}
-%\defbibheading{article}{\subsection*{Journal Articles}}
+\defbibheading{article}{\subsection*{Journal Articles}}
 \defbibheading{misc}{\subsection*{Non-Peer Reviewed Papers}}
 \defbibheading{inproceedings}{\subsection*{Conference Papers}}
 

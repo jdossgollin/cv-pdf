@@ -2,7 +2,6 @@
 *.log
 *.out
 *.kilepr
-*.bib
 *.bbl
 *.blg
 *.xml
@@ -10,3 +9,4 @@
 *.backup
 .DS_Store
 .Rhistory
+*.bak

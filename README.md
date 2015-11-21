@@ -1,6 +1,5 @@
 # fullcv
 
-This is the source files for my CV, built in latex using the `moderncv` template and `biblatex` (via `biber`). 
+This is the source files for my CV, built in latex using the `moderncv` template and `biblatex` (via `biber`) for bibliographies. 
 The code isn't beautifully written, but it's effective for what it does.
-
-Use without attributing anything to me since I didn't write any packages -- I just hacked some things together and sought help on StackOverflow. Thanks to the authors of the packages.
+Thanks to the authors of the packages, and in particular *Xavier Danaux* who authored the `moderncv` package and created a template that was my starting point.

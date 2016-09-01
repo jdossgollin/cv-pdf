@@ -18,7 +18,7 @@
 
 
 
-\setlength{\hintscolumnwidth}{3.3cm}  %  width of the column with the dates
+\setlength{\hintscolumnwidth}{3.1cm}  %  width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}  % force the width allocated to your name and avoid line breaks
 \renewcommand*{\namefont}{\fontsize{20}{22}\mdseries\upshape}
 \usepackage{csquotes}
@@ -33,7 +33,8 @@
 
 %---------------------Bibliography and BiBLaTeX--------------------
 % Use BibLaTeX
-\usepackage[backend=biber,
+\usepackage[
+    backend=biber,
     sorting=ydnt,
     defernumbers,
     doi=true,
@@ -47,7 +48,44 @@
 \defbibheading{misc}{\subsection*{Non-Peer Reviewed Papers}}
 \defbibheading{inproceedings}{\subsection*{Conference Papers}}
 
+% make author bold
+\def\makenamesetup{%
+  \def\bibnamedelima{~}%
+  \def\bibnamedelimb{ }%
+  \def\bibnamedelimc{ }%
+  \def\bibnamedelimd{ }%
+  \def\bibnamedelimi{ }%
+  \def\bibinitperiod{.}%
+  \def\bibinitdelim{~}%
+  \def\bibinithyphendelim{.-}}
+\newcommand*{\makename}[2]{\begingroup\makenamesetup\xdef#1{#2}\endgroup}
+
+\newcommand*{\boldname}[3]{%
+  \def\lastname{#1}%
+  \def\firstname{#2}%
+  \def\firstinit{#3}}
+\boldname{}{}{}
+
+% Patch new definitions
+\renewcommand{\mkbibnamegiven}[1]{%
+  \makename{\currname}{#1}%
+  \makename{\findname}{\firstname}%
+  \makename{\findinit}{\firstinit}%
+  \ifboolexpr{ test {\ifdefequal{\currname}{\findname}}%
+    or test {\ifdefequal{\currname}{\findinit}} }%
+  {\mkbibbold{#1}}{#1}%
+}
+
+\renewcommand{\mkbibnamefamily}[1]{%
+  \makename{\currname}{#1}%
+  \makename{\findname}{\lastname}%
+  \ifboolexpr{ test {\ifdefequal{\currname}{\findname}} }%
+  {\mkbibbold{#1}}{#1}%
+}
+
+
 \addbibresource{MyPapers.bib}
+
 
 %------------------------ personal data -------------------------------------
 \name{James}{Doss-Gollin}

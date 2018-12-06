@@ -2,14 +2,89 @@
 
 \begin{document}
 \makecvtitle{}
-\vspace*{-13mm}
+%\vspace*{-13mm}
 
-\input{education.tex} % education section
-\input{experience.tex} % experience
-\input{honors_awards.tex} % honors and awards
-\input{professional_service.tex}
-\input{skills.tex} % skills (language and computer)
-\input{publications.tex}
+\section{Education}
+
+\cventry{Present}{Ph.D. Candidate}{Department of Earth and Environmental Engineering}{Columbia University}{}{}
+\cventry{2016}{M.S.}{Department of Earth and Environmental Engineering}{Columbia University}{}{}
+\cventry{2015}{B.S.}{Mechanical Engineering }{Yale University}{}{}
+\cventry{2011}{High School}{Wilbur Cross}{}{New Haven, CT}{}
+
+\section{Experience}
+
+\cventry{2015--Present}{Graduate Research Assistant}{Columbia Water Center, Department of Earth and Environmental Engineering, Columbia University}{New York}{}{}
+\cventry{2014--2015}{Visiting Student Researcher}{Universidade Federal do Cear\'a, Hydraulic and Environmental Engineering Department}{Fortaleza}{Brazil}{}
+\cventry{2014-2015}{Undergraduate Research Assistant}{Prof.~Jaehong Kim}{Yale University}{}{}
+\cventry{2012}{Ikat\'u Agua Project Intern}{Fundaci\'on Paraguaya}{}{}{}
+\cventry{2013}{Mechanical Design Intern}{DEKA Research \& Development}{Manchester, NH}{}{}
+
+\section{Honors \& Awards}
+
+\cvitem{2018}{Columbia University Fu Foundation School of Engineering and Applied Science Nickolas and Liliana Themelis Fellowship}
+\cvitem{2017-2020}{National Science Foundation Graduate Research Fellowship}
+\cvitem{2015-2019}{Fu Foundation School of Engineering and Applied Science Presidential Distinguished Fellowship}
+\cvitem{2015}{Yale University B.S. Cum Laude}
+\cvitem{2015}{Yale University Distinction in Mechanical Engineering and Materials Science}
+\cvitem{2014}{Yale University Larry Coben '79 Fellowship}
+\cvitem{2013}{Yale University Vance-Carter Travel Award}
+\cvitem{2012}{Yale University Thomas C. Barry Fellowship}
+
+\section{Professional and Community Engagement}
+
+\cventry{2018}{Teaching Assistant}{Environmental Data Modeling \& Analysis}{}{}{
+  \begin{itemize}
+  \item Write and grade problem sets for 40 masters-level students
+  \item Give two lectures: ``Introduction to R and RStudio'', and ``Introduction to Bayesian Methods''
+  \end{itemize}
+}
+\cventry{2017-Present}{Peer Reviewer}{}{}{}{
+  A verified record of reviews available at \url{https://publons.com/a/1468228/}.
+  \begin{itemize}
+  \item Oxford Journal of Development Studies
+  \item Journal of Hydrology
+  \item Journal of Applied Meteorology and Climatology
+  \end{itemize}
+}
+\cventry{2017-2018}{Co-Organizer}{Columbia Earth and Environmental Engineering Student Research Symposium}{}{}{}
+\cventry{2015-Present}{Member}{American Geophysical Union}{}{}{}
+\cventry{2016-Present}{Member}{American Meteorological Society}{}{}{}
+\cventry{2016--2017}{Volunteer}{Youth Career Connect}{New York, NY}{}{
+    Mentor New York high school juniors and seniors interested in STEM careers
+}
+\cventry{2015}{Education Policy Summer Intern}{New Haven Housing Authority/Elm City Communities}{New Haven}{}{}
+\cventry{2012--2015}{Founder \& President}{New Haven REACH}{New Haven, CT}{}{
+  Founded and led a program which trained and connected 50 volunteer mentors from Yale with New Haven high school seniors applying to college
+}
+
+\section{Skills}
+
+\subsection{Computer}
+
+\cvitem{Programming}{advanced: Python, R;\@ proficient: Matlab, C++}
+\cvitem{Communication}{advanced: Markdown/Pandoc, Rmarkdown, \LaTeX{}}
+\cvitem{Reproducibility}{proficient: Docker, git, conda, GNU make}
+\cvitem{Bayesian Comp.}{advanced: stan; proficient: PyMC3, Edward}
+\cvitem{Deep Learning}{proficient: tensorflow, keras}
+\cvitem{Web}{proficient: jekyll, pelican}
+\cvitem{Github}{\href{www.github.com/jdossgollin}{www.github.com/jdossgollin}}
+
+\subsection{Language}
+
+\cvitem{English}{Native speaker}
+\cvitem{Spanish}{Full professional proficiency}
+\cvitem{Portuguese}{Professional working proficiency}
+\cvitem{French}{Elementary proficiency}
+\cvitem{Italian}{Elementary proficiency}
+\cvitem{Guaran\'{i}}{Basic}
+
+% Publications
+\boldname{Doss-Gollin}{James}{J.}
+\nocite{*} % count all pubs as cited
+\printbibheading
+\printbibliography[heading=article,resetnumbers,type=article]
+\printbibliography[heading=unpublished,resetnumbers,type=unpublished]
+\printbibliography[heading=inproceedings,resetnumbers,type=inproceedings]
 
 \vfill
 Last updated on \today

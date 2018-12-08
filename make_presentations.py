@@ -5,33 +5,41 @@ latex \cventry files
 
 import pandas as pd
 import os
+from titlecase import titlecase
 
-filename = "presentations.csv"
-csv = (
-    pd.read_csv(
-        filename,
-        parse_dates=True,
-        index_col="date",
-        na_values="",
-        quotechar='"',
-    ).
-    fillna('').
-    sort_index(ascending=False)
-)
+def main():
+    """Run the script here
+    """
 
-outfile = "presentations.tex"
-if os.path.isfile(outfile):
-    os.remove(outfile)
+    filename = "presentations.csv"
+    csv = (
+        pd.read_csv(
+            filename,
+            parse_dates=True,
+            index_col="date",
+            na_values="",
+            quotechar='"',
+        ).
+        fillna('').
+        sort_index(ascending=False)
+    )
 
-with open(outfile, "w") as text_file:
-    for idx,row in csv.iterrows():
-        date =  idx.date().strftime('%Y-%m-%d')
-        title = row.title.title()
-        event = row.event.title()
-        location = row.location
-        event_format = row.format.lower()
-        string = r"\cventry"
-        string += f"{{{date}}}{{{title}}}{{{event}}}{{{location}}}{{{event_format}}}{{}}\n"
-        text_file.write(string)
+    outfile = "presentations.tex"
+    if os.path.isfile(outfile):
+        os.remove(outfile)
 
-print("All done")
+    with open(outfile, "w") as text_file:
+        for idx, row in csv.iterrows():
+            date =  idx.date().strftime('%Y-%m-%d')
+            title = titlecase(row.title)
+            event = titlecase(row.event)
+            location = titlecase(row.location)
+            event_format = row.format.lower()
+            string = r"\cventry"
+            string += f"{{{date}}}{{{title}}}{{{event}}}{{{location}}}{{{event_format}}}{{}}\n"
+            text_file.write(string)
+
+    print("All done")
+
+if __name__ == "__main__":
+    main()

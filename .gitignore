@@ -10,3 +10,6 @@
 .DS_Store
 .Rhistory
 *.bak
+*/.ipynb_checkpoints/*
+*.ipynb
+*.xdv

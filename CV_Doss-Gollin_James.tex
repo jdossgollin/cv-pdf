@@ -3,7 +3,11 @@
 % Appearance
 \moderncvstyle{classic}
 \moderncvcolor{blue}
-\usepackage[scale=0.875]{geometry}% adjust the page margins
+\usepackage[margin=1in]{geometry}% adjust the page margins
+
+\usepackage{ragged2e}
+
+% Special margins for the CV
 \setlength{\hintscolumnwidth}{3.2cm}  %  width of the column with the dates
 \renewcommand*{\namefont}{\fontsize{20}{22}\mdseries\upshape}
 
@@ -17,6 +21,7 @@
 
 % Use Biblatex
 \input{biblatex-config.tex}
+
 \addbibresource{my-papers/my-papers.bib}
 
 
@@ -24,7 +29,7 @@
 \name{James}{Doss-Gollin}
 %\title{Curriculum Vitae}
 %\address{62 Anderson St}{New Haven, CT 06511}{} % optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{+1~(203)~494~9408}
+%\phone[mobile]{+1~(203)~494~9408}
 %\phone[fixed]{+2~(345)~678~901}
 %\phone[fax]{+3~(456)~789~012}
 \email{james.doss-gollin@columbia.edu}
@@ -33,15 +38,23 @@
 %\quote{Some quote}          % optional, remove / comment the line if not wanted
 
 \begin{document}
+
+\input{cover-letters/cover-nrel.tex}
+\clearpage
+
+\newgeometry{scale=0.875}
+\RaggedRight
+
 \makecvtitle{}
 \vspace*{-11mm}
 
 \input{tex/education.tex}
+\input{tex/awards.tex}
 \input{tex/experience.tex}
+\input{tex/publications.tex}
+\input{tex/teaching.tex}
 \input{tex/engagement.tex}
 \input{tex/skills.tex}
-\input{tex/awards.tex}
-\input{tex/publications.tex}
 
 \vfill
 Last updated on \today

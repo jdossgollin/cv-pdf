@@ -8,11 +8,11 @@
 \usepackage{ragged2e}
 
 % Special margins for the CV
-\setlength{\hintscolumnwidth}{3.2cm}  %  width of the column with the dates
+\setlength{\hintscolumnwidth}{3.0cm}  %  width of the column with the dates
 \renewcommand*{\namefont}{\fontsize{20}{22}\mdseries\upshape}
 
 % Fonts
-\usepackage[sc]{mathpazo} %palatino
+\usepackage[sc]{mathpazo}
 \renewcommand{\sfdefault}{\rmdefault}
 
 % Page numbers
@@ -27,21 +27,18 @@
 
 %------------------------ personal data -------------------------------------
 \name{James}{Doss-Gollin}
-%\title{Curriculum Vitae}
-%\address{62 Anderson St}{New Haven, CT 06511}{} % optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-%\phone[mobile]{+1~(203)~494~9408}
-%\phone[fixed]{+2~(345)~678~901}
-%\phone[fax]{+3~(456)~789~012}
 \email{james.doss-gollin@columbia.edu}
-\homepage{www.jamesdossgollin.me}
-%\photo[64pt][0.4pt]{picture}   % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Some quote}          % optional, remove / comment the line if not wanted
+\homepage{https://jamesdossgollin.me}
+\social[linkedin][www.linkedin.com/in/jamesdossgollin/]{jamesdossgollin}
+\social[twitter][www.twitter.com/jdossgollin/]{jdossgollin}
+\social[github][www.github.com/jdossgollin/]{jdossgollin}
+
+
 
 \begin{document}
 
 \clearpage
-\newgeometry{scale=0.875}
-\RaggedRight
+\newgeometry{scale=0.85}
 
 \makecvtitle{}
 \vspace*{-11mm}
@@ -53,9 +50,6 @@
 \input{tex/teaching.tex}
 \input{tex/engagement.tex}
 \input{tex/skills.tex}
-
-\vfill
-Last updated on \today
 
 %---------END-----------------------
 \end{document}

@@ -57,6 +57,7 @@
   {\endlist}
   {\item}
 
-% CLEAN UP
+% Remove some problematic and/or unnecessary fields
 \AtEveryBibitem{\clearfield{month}\clearfield{pages}\clearfield{day}}
+\AtEveryBibitem{\clearfield{howpublished}} % otherwise editorial prints twice
 \renewbibmacro{in:}{}

@@ -1,5 +1,8 @@
 \documentclass[11pt,letterpaper,roman]{moderncv}
 
+% https://tex.stackexchange.com/questions/64188/what-are-good-ways-to-make-pdflatex-output-copy-and-pasteable
+\usepackage{cmap}
+
 % Appearance
 \moderncvstyle{classic}
 \moderncvcolor{blue}
@@ -12,7 +15,10 @@
 \renewcommand*{\namefont}{\fontsize{20}{22}\mdseries\upshape}
 
 % Fonts
-\usepackage[sc]{mathpazo}
+%\usepackage[sc]{mathpazo}
+\usepackage{libertine}
+%\usepackage{fontspec}
+%\setmainfont{Didot}
 \renewcommand{\sfdefault}{\rmdefault}
 
 % Page numbers
@@ -33,8 +39,7 @@
 \name{James}{Doss-Gollin}
 \email{james.doss-gollin@columbia.edu}
 \homepage{https://jamesdossgollin.me}
-\social[orcid][www.orcid.org/0000-0002-3428-2224]{0000-0002-3428-2224 v }
-\social[linkedin][www.linkedin.com/in/jamesdossgollin/]{jamesdossgollin}
+\social[orcid][www.orcid.org/0000-0002-3428-2224]{0000-0002-3428-2224}
 \social[twitter][www.twitter.com/jdossgollin/]{jdossgollin}
 \social[github][www.github.com/jdossgollin/]{jdossgollin}
 

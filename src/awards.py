@@ -5,9 +5,8 @@ Parse the talks
 import os
 import yaml
 
-ROOT_DIR = DATA_FILE = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), os.pardir)
-)
+from common import ROOT_DIR, make_cventry, make_section
+
 DATA_FILE = os.path.join(ROOT_DIR, "data", "awards.yml")
 TEX_FILE = os.path.join(ROOT_DIR, "tex", "awards.tex")
 
@@ -22,22 +21,18 @@ if __name__ == "__main__":
                 award[key] = ""
 
     strings = [
-        "\cventry"
-        + "{"
-        + str(award["year"])
-        + "}{"
-        + award["title"]
-        + "}{"
-        + award["awarder"]
-        + "}{"
-        + award["institution"]
-        + "}{}{}\n"
+        make_cventry(
+            arg1=str(award["year"]),
+            arg2=award["title"],
+            arg3=award["awarder"],
+            arg4=award["institution"],
+        )
         for award in awards_ordered
     ]
 
     with open(TEX_FILE, "w") as file:
 
-        file.write("\section{Honors \& Awards}\n")
+        file.write(make_section("Honors and Awards"))
 
         for string in strings:
             file.write(string)

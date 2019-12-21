@@ -34,6 +34,8 @@
 \usepackage{academicons}
 \newcommand{\orcidsocialsymbol}{{\aiOrcid}~}
 
+% Link colors
+
 
 %------------------------ personal data -------------------------------------
 \name{James}{Doss-Gollin}
@@ -47,20 +49,76 @@
 
 \begin{document}
 
-%\clearpage
-%\newgeometry{left=0.5in, top=0.75in, bottom=0.75in, right=0.75in}
-
 \makecvtitle{}
 \vspace*{-13mm}
 
 \input{tex/education.tex}
+\input{tex/research.tex}
 \input{tex/awards.tex}
-\input{tex/experience.tex}
-\input{tex/publications.tex}
+
+% Publications
+\boldname{Doss-Gollin}{James}{J.}
+\nocite{*}
+\printbibheading
+\bibbycategory
+
+\input{tex/workshops.tex}
+
 \input{tex/talks.tex}
+
 \input{tex/teaching.tex}
-\input{tex/engagement.tex}
-\input{tex/skills.tex}
+
+\section{Community Engagement}
+
+\cventry{2017-Present}{Peer Reviewer}{}{}{}{
+  \emph{A verified record of reviews is available at} \url{https://publons.com/a/1468228/}
+  \begin{itemize}
+    \item Journal of Applied Meteorology and Climatology
+    \item Journal of Hydrology
+    \item Natural Hazards and Earth System Sciences
+    \item Oxford Journal of Development Studies
+    \item Water Security
+  \end{itemize}
+}
+
+\cvitem{Professional Memberships}{Society for Decision Making under Deep Uncertainty (DMDU), American Society of Civil Engineers (ASCE), American Geophysical Union (AGU), American Meteorological Society (AMS)}
+
+\input{tex/conferences.tex}
+
+\subsection{Outreach and Volunteering}
+
+\cventry{2016--2017}{Volunteer}{Youth Career Connect}{New York, NY}{}{
+  Mentored New York high school juniors and seniors interested in STEM careers.
+}
+\cventry{2015}{Summer Intern}{Education Policy Initiative}{New Haven Housing Authority/Elm City Communities}{New Haven, CT}{
+  Developed summer curriculum and researched policy interventions to support literacy and youth engagement and reduce multi-generational poverty.
+}
+\cventry{2012--2015}{Founder and President}{New Haven REACH}{New Haven, CT}{}{
+  Founded and led a program to support New Haven high school seniors applying to college.
+  Recruited, trained, and coordinated over 50 volunteer mentors from Yale.
+}
+\cventry{2011--2015}{President}{Engineers Without Borders}{Yale Student Chapter}{}{
+   As member (2011-2012, 2015), design lead (2013) and president (2014) led student team in design and construction of water supply system for rural community of 1500 in Northwestern Cameroon.
+}
+
+
+\section{Skills}
+
+\subsection{Computer}
+
+\cvitem{\texttt{lang}}{Python (and PyData ecosystem), R (and Tidyverse), bash, Matlab, C++}
+\cvitem{\texttt{ML}}{stan, PyMC3, tensorflow, keras, openAI gym}
+\cvitem{\texttt{doc}}{Markdown, pandoc, RMarkdown, \LaTeX{}, jupyter, jekyll, pelican}
+\cvitem{\texttt{SWE}}{Docker, git, conda, make, pytest}
+
+\subsection{Language}
+
+\cvitem{English}{Native speaker}
+\cvitem{Spanish}{Full professional proficiency}
+\cvitem{Portuguese}{Professional working proficiency}
+\cvitem{French}{Elementary proficiency}
+\cvitem{Italian}{Elementary proficiency}
+\cvitem{Guaran\'{i}}{Basic}
 
 %---------END-----------------------
 \end{document}

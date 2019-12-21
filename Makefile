@@ -15,13 +15,23 @@ TEX_INTERP = latexmk -cd -e -f -pdf -interaction=nonstopmode
 # Convert yml to latex
 ################################################################################
 
-tex/talks.tex	:	src/talks.py data/talks.yml
+tex/talks.tex	:	src/talks.py data/talks.yml src/common.py
 	$(PY_INTERP) $<
-tex/awards.tex	:	src/awards.py data/awards.yml
+tex/workshops.tex	:	src/workshops.py data/workshops.yml src/common.py
+	$(PY_INTERP) $<
+tex/awards.tex	:	src/awards.py data/awards.yml src/common.py
+	$(PY_INTERP) $<
+tex/teaching.tex	:	src/teaching.py data/teaching.yml src/common.py
+	$(PY_INTERP) $<
+tex/research.tex	:	src/research.py data/research.yml src/common.py
+	$(PY_INTERP) $<
+tex/education.tex	:	src/education.py data/education.yml src/common.py
+	$(PY_INTERP) $<
+tex/conferences.tex	:	src/conferences.py data/conferences.yml src/common.py
 	$(PY_INTERP) $<
 
 ## make all the latex files from the yml data
-tex: tex/talks.tex tex/awards.tex
+tex: tex/talks.tex tex/workshops.tex tex/awards.tex tex/teaching.tex tex/research.tex tex/education.tex tex/conferences.tex
 
 ################################################################################
 # PDF

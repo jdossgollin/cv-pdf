@@ -1,5 +1,5 @@
 """
-Parse the talks
+Parse the workshops
 """
 
 import os
@@ -8,8 +8,8 @@ import yaml
 
 from common import ROOT_DIR, make_cventry, make_subsection
 
-DATA_FILE = os.path.join(ROOT_DIR, "data", "talks.yml")
-TEX_FILE = os.path.join(ROOT_DIR, "tex", "talks.tex")
+DATA_FILE = os.path.join(ROOT_DIR, "data", "workshops.yml")
+TEX_FILE = os.path.join(ROOT_DIR, "tex", "workshops.tex")
 
 
 def parse_talk(talk: Dict[str, str]) -> str:
@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     with open(TEX_FILE, "w") as file:
 
-        file.write(make_subsection("Invited Talks"))
+        file.write(make_subsection("Workshop Presentations"))
 
         for string in strings:
             file.write(string)

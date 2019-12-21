@@ -1,0 +1,22 @@
+- degree: Ph.D. Candidate
+  department: Department of Earth and Environmental Engineering
+  university: Columbia University
+  location: New York, NY
+  year: Present
+  description:
+    - NSF Graduate Research Fellow
+    - Columbia University Presidential Fellow
+- degree: M.S.
+  department: Department of Earth and Environmental Engineering
+  university: Columbia University
+  location: New York, NY
+  year: 2016
+- degree: B.S.
+  department: Department of Mechanical Engineering
+  university: Yale University
+  location: New Haven, CT
+  year: 2015
+  description:
+    - "Senior Project: ``Adapting UVC-LEDs for Portable Water Purification'''"
+    - "Graduated \\emph{Cum Laude}"
+    - Distinction in major

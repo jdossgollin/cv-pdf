@@ -50,6 +50,15 @@ def make_cventry(
     return string
 
 
+def make_cvitem(arg1: str, arg2: str) -> str:
+    """
+    Make the \cvitem{}{} command
+    """
+
+    string = "\cvitem{" + arg1 + "}{" + arg2 + "}\n\n"
+    return string
+
+
 def make_section(name: str) -> str:
     """
     Print the section name in proper format

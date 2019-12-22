@@ -29,9 +29,13 @@ tex/education.tex	:	src/education.py data/education.yml src/common.py
 	$(PY_INTERP) $<
 tex/conferences.tex	:	src/conferences.py data/conferences.yml src/common.py
 	$(PY_INTERP) $<
+tex/languages.tex	:	src/languages.py data/languages.yml src/common.py
+	$(PY_INTERP) $<
+tex/outreach.tex	:	src/outreach.py data/outreach.yml src/common.py
+	$(PY_INTERP) $<
 
 ## make all the latex files from the yml data
-tex: tex/talks.tex tex/workshops.tex tex/awards.tex tex/teaching.tex tex/research.tex tex/education.tex tex/conferences.tex
+tex: tex/talks.tex tex/workshops.tex tex/awards.tex tex/teaching.tex tex/research.tex tex/education.tex tex/conferences.tex tex/languages.tex tex/outreach.tex
 
 ################################################################################
 # PDF

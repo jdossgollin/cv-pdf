@@ -1,3 +1,5 @@
+\PassOptionsToPackage{pdfborderstyle={/S/U/W 2}}{hyperref}
+
 \documentclass[11pt,letterpaper,roman]{moderncv}
 
 % https://tex.stackexchange.com/questions/64188/what-are-good-ways-to-make-pdflatex-output-copy-and-pasteable
@@ -11,14 +13,11 @@
 \usepackage{ragged2e}
 
 % Special margins for the CV
-\setlength{\hintscolumnwidth}{3.0cm}  %  width of the column with the dates
+\setlength{\hintscolumnwidth}{2.5cm}  %  width of the column with the dates
 \renewcommand*{\namefont}{\fontsize{20}{22}\mdseries\upshape}
 
 % Fonts
-%\usepackage[sc]{mathpazo}
-\usepackage{libertine}
-%\usepackage{fontspec}
-%\setmainfont{Didot}
+\usepackage[ttscale=.875]{libertine}
 \renewcommand{\sfdefault}{\rmdefault}
 
 % Page numbers
@@ -34,9 +33,6 @@
 \usepackage{academicons}
 \newcommand{\orcidsocialsymbol}{{\aiOrcid}~}
 
-% Link colors
-
-
 %------------------------ personal data -------------------------------------
 \name{James}{Doss-Gollin}
 \email{james.doss-gollin@columbia.edu}
@@ -44,8 +40,6 @@
 \social[orcid][www.orcid.org/0000-0002-3428-2224]{0000-0002-3428-2224}
 \social[twitter][www.twitter.com/jdossgollin/]{jdossgollin}
 \social[github][www.github.com/jdossgollin/]{jdossgollin}
-
-
 
 \begin{document}
 
@@ -55,6 +49,9 @@
 \input{tex/education.tex}
 \input{tex/research.tex}
 \input{tex/awards.tex}
+
+% HACK
+\clearpage
 
 % Publications
 \boldname{Doss-Gollin}{James}{J.}
@@ -70,8 +67,8 @@
 
 \section{Community Engagement}
 
-\cventry{2017-Present}{Peer Reviewer}{}{}{}{
-  \emph{A verified record of reviews is available at} \url{https://publons.com/a/1468228/}
+\cvitem{Peer Reviewer}{
+  A verified record of reviews is available on \href{https://publons.com/a/1468228/}{Publons}
   \begin{itemize}
     \item Journal of Applied Meteorology and Climatology
     \item Journal of Hydrology
@@ -85,22 +82,7 @@
 
 \input{tex/conferences.tex}
 
-\subsection{Outreach and Volunteering}
-
-\cventry{2016--2017}{Volunteer}{Youth Career Connect}{New York, NY}{}{
-  Mentored New York high school juniors and seniors interested in STEM careers.
-}
-\cventry{2015}{Summer Intern}{Education Policy Initiative}{New Haven Housing Authority/Elm City Communities}{New Haven, CT}{
-  Developed summer curriculum and researched policy interventions to support literacy and youth engagement and reduce multi-generational poverty.
-}
-\cventry{2012--2015}{Founder and President}{New Haven REACH}{New Haven, CT}{}{
-  Founded and led a program to support New Haven high school seniors applying to college.
-  Recruited, trained, and coordinated over 50 volunteer mentors from Yale.
-}
-\cventry{2011--2015}{President}{Engineers Without Borders}{Yale Student Chapter}{}{
-   As member (2011-2012, 2015), design lead (2013) and president (2014) led student team in design and construction of water supply system for rural community of 1500 in Northwestern Cameroon.
-}
-
+\input{tex/outreach.tex}
 
 \section{Skills}
 
@@ -111,14 +93,7 @@
 \cvitem{\texttt{doc}}{Markdown, pandoc, RMarkdown, \LaTeX{}, jupyter, jekyll, pelican}
 \cvitem{\texttt{SWE}}{Docker, git, conda, make, pytest}
 
-\subsection{Language}
-
-\cvitem{English}{Native speaker}
-\cvitem{Spanish}{Full professional proficiency}
-\cvitem{Portuguese}{Professional working proficiency}
-\cvitem{French}{Elementary proficiency}
-\cvitem{Italian}{Elementary proficiency}
-\cvitem{Guaran\'{i}}{Basic}
+\input{tex/languages.tex}
 
 %---------END-----------------------
 \end{document}

@@ -43,13 +43,13 @@ tex: tex/talks.tex tex/workshops.tex tex/awards.tex tex/teaching.tex tex/researc
 # build the latex PDF
 ################################################################################
 
-CV_Doss-Gollin_James.pdf	:	CV_Doss-Gollin_James.tex tex/talks.tex tex/awards.tex
+CV_Doss-Gollin_James.pdf	:	CV_Doss-Gollin_James.tex tex my-papers/my-papers.bib
 	$(TEX_INTERP) $<
 
 docs/CV_Doss-Gollin_James.pdf	:	CV_Doss-Gollin_James.pdf
 	cp $< $@
 
-pdf: tex docs/CV_Doss-Gollin_James.pdf
+pdf: docs/CV_Doss-Gollin_James.pdf
 
 ################################################################################
 # Self-Documenting Help Commands

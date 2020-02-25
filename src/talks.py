@@ -22,7 +22,7 @@ def parse_talk(talk: Dict[str, str]) -> str:
 
     return make_cventry(
         arg1=str(talk["date"]),
-        arg2=talk["title"],
+        arg2=talk["title"].title(),
         arg3=talk["venue"],
         arg4=talk["location"],
         arg5=talk["format"],

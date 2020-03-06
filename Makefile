@@ -35,9 +35,11 @@ tex/outreach.tex	:	src/outreach.py data/outreach.yml src/common.py
 	$(PY_INTERP) $<
 tex/media.tex	:	src/media.py data/media.yml src/common.py
 	$(PY_INTERP) $<
+tex/public.tex	:	src/public.py data/public.yml src/common.py
+	$(PY_INTERP) $<
 
 ## make all the latex files from the yml data
-tex: tex/talks.tex tex/workshops.tex tex/awards.tex tex/teaching.tex tex/research.tex tex/education.tex tex/conferences.tex tex/languages.tex tex/outreach.tex tex/media.tex
+tex: tex/talks.tex tex/workshops.tex tex/awards.tex tex/teaching.tex tex/research.tex tex/education.tex tex/conferences.tex tex/languages.tex tex/outreach.tex tex/media.tex tex/public.tex
 
 ################################################################################
 # PDF

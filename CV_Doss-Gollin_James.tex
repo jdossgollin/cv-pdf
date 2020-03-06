@@ -22,7 +22,8 @@
 
 % Page numbers
 \usepackage{lastpage}
-\rfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of\ \pageref{LastPage}}}
+\lfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of\ \pageref{LastPage}}}
+\rfoot{\addressfont\itshape\textcolor{gray}{James Doss-Gollin}}
 
 % Use Biblatex
 \input{biblatex-config.tex}
@@ -36,7 +37,7 @@
 %------------------------ personal data -------------------------------------
 \name{James}{Doss-Gollin}
 \email{james.doss-gollin@columbia.edu}
-\homepage{https://jamesdossgollin.me}
+\homepage{jamesdossgollin.me}
 \social[orcid][www.orcid.org/0000-0002-3428-2224]{0000-0002-3428-2224}
 \social[twitter][www.twitter.com/jdossgollin/]{jdossgollin}
 \social[github][www.github.com/jdossgollin/]{jdossgollin}
@@ -65,10 +66,10 @@
 
 \input{tex/talks.tex}
 
-\input{tex/media.tex}
 
 \input{tex/teaching.tex}
 
+\clearpage % HACK
 \section{Community Engagement}
 
 \cvitem{Peer Reviewer}{
@@ -84,15 +85,16 @@
 
 \cvitem{Professional Memberships}{Society for Decision Making under Deep Uncertainty (DMDU), American Society of Civil Engineers (ASCE), American Geophysical Union (AGU), American Meteorological Society (AMS)}
 
+\input{tex/media.tex}
 \input{tex/conferences.tex}
-
+\input{tex/public.tex}
 \input{tex/outreach.tex}
 
 \section{Skills}
 
 \subsection{Computer}
 
-\cvitem{\texttt{lang}}{Python (and PyData ecosystem), R (and Tidyverse), bash, Matlab, C++}
+\cvitem{\texttt{lang}}{Python (and PyData/Pangeo ecosystem), R (and Tidyverse), bash, Matlab, C++}
 \cvitem{\texttt{ML}}{stan, PyMC3, tensorflow, keras, openAI gym}
 \cvitem{\texttt{doc}}{Markdown, pandoc, RMarkdown, \LaTeX{}, jupyter, jekyll, pelican}
 \cvitem{\texttt{SWE}}{Docker, git, conda, make, pytest}

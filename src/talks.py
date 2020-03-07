@@ -34,6 +34,11 @@ if __name__ == "__main__":
         talks = yaml.full_load(file)
 
     talks_ordered = sorted(talks, key=lambda x: x["date"], reverse=True)
+    
+    # ibid if necessary
+    for i in reversed(range(1, len(talks_ordered))):
+        if talks_ordered[i]["title"] == talks_ordered[i-1]["title"]:
+            talks_ordered[i]["title"] = "ibid"
 
     strings = [parse_talk(talk) for talk in talks_ordered]
 

@@ -1,17 +1,14 @@
-# An environment for working with climate data
-# based on https://rabernat.github.io/research_computing/introduction-to-the-habanero-hpc-cluster.html
-# with some modifications
 name: cv
 channels:
     - conda-forge
     - defaults
 dependencies:
-    - python=3.7    # Python version 3.6
-    - black         # clean code and make it pretty
-    - ipython       # IPython interpreter and tools
-    - mypy          # linter
-    - numpy         # N-d array and numerics
-    - pandas        # Labeled array library
+    - python=3.7 # Python version 3.6
+    - black # clean code and make it pretty
+    - ipython # IPython interpreter and tools
+    - mypy # linter
+    - numpy # N-d array and numerics
+    - pandas # Labeled array library
     - pip
-    - pylint        # catch errors before you make them
+    - pylint # catch errors before you make them
     - pyyaml

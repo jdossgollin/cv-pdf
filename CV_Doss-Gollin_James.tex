@@ -1,12 +1,3 @@
-% Change how links are shown
-\AtBeginDocument{\hypersetup{
-	colorlinks=false,
-	pdfborderstyle={/S/U/W 0.25},
-	linkbordercolor=color2,
-	citebordercolor=color2,
-	urlbordercolor=color2,
-}}
-
 % Begin document setup
 \documentclass[12pt,letterpaper,roman]{moderncv}
 
@@ -21,7 +12,7 @@
 \renewcommand*{\namefont}{\fontsize{20}{22}\mdseries\upshape}
 
 % Fonts
-\usepackage[ttscale=.875]{libertine}
+\usepackage[ttscale=.85]{libertine}
 \renewcommand{\sfdefault}{\rmdefault}
 
 % Page numbers
@@ -49,8 +40,6 @@
 \makecvtitle{}
 \vspace*{-10mm}
 
-% the \clearpage comments are added to fix formatting issues
-
 \input{tex/appointments.tex}
 \input{tex/education.tex}
 \input{tex/awards.tex}
@@ -59,7 +48,7 @@
 \clearpage\input{tex/media.tex}
 \input{tex/community.tex}
 \input{tex/teaching.tex}
-\clearpage\input{tex/experience.tex}
+\input{tex/experience.tex}
 \input{tex/languages.tex}
 
 \end{document}

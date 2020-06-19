@@ -3,6 +3,13 @@
 Academic CV for James Doss-Gollin.
 Output is available [here](docs/CV_Doss-Gollin_James.pdf)
 
+## Installing
+
+```bash
+conda env create --file environment.yml
+pip install -e .
+```
+
 ## Building
 
 Everything is stored in the `data/` folder in `yml` format, and then is converted to latex using python scripts.
@@ -10,8 +17,8 @@ This makes it easy to update the CV without worrying about latex syntax (though 
 
 To create the PDF:
 
-```
-make pdf
+```bash
+bash build.sh
 ```
 
 That will build the PDF and put a copy in the `docs/` folder for serving with GitHub pages

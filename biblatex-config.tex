@@ -2,89 +2,24 @@
 % Use BibLaTeX
 \usepackage[
 	backend=biber,
-	sorting=ydnt,
-	defernumbers=true,
+	style=publist,
+	plauthorfirstinit=true,
+	plauthorhandling=highlight,
+	boldyear=false,
+	marginyear=false,
+	plnumbered=reset,
 	doi=true,
 	url=false,
 	isbn=false,
-	maxbibnames=99
+	maxbibnames=99,
+	sorting=ydnt,
+	defernumbers=true,
 ]{biblatex}
+\plauthorname[James]{Doss-Gollin} % bold my name
 
-\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}
+\addbibresource{my-papers/my-papers.bib}
 
-\makeatletter
-
-% Print labelnumber as actual number, plus item total, minus one
-\newrobustcmd{\mkbibdesc}[1]{%
-	\number\numexpr\csuse{bbx@itemtotal}+1-#1\relax}
-
-% Initialize category counters
-\def\bbx@initcategory#1{\csnumgdef{bbx@count@#1}{0}}
-\forlistloop{\bbx@initcategory}{\blx@categories}
-
-% Increment category counters
-\def\bbx@countcategory#1{%
-	\ifentrytype{#1}
-	{\csnumgdef{bbx@count@#1}{\csuse{bbx@count@#1}+1}%
-		\addtocategory{#1}{\thefield{entrykey}}%
-		\listbreak}
-	{}}
-\AtDataInput{\forlistloop{\bbx@countcategory}{\blx@categories}}
-
-% Modify \bibbycategory to set item total
-\patchcmd{\blx@bibcategory}
-{\blx@key@heading{#1}}
-{\blx@key@heading{#1}%
-	\csnumdef{blx@labelnumber@\the\c@refsection}{0}%
-	\csnumgdef{bbx@itemtotal}{\csuse{bbx@count@#1}}}
-{}{}
-
-\makeatother
-
-\DeclareBibliographyCategory{article}
-\DeclareBibliographyCategory{report}
-\DeclareBibliographyCategory{inproceedings}
-\DeclareBibliographyCategory{misc}
-\DeclareBibliographyCategory{unpublished}
-
-% Rename the section headings
-\defbibheading{unpublished}{\subsection*{Manuscripts Accepted, Under Review, and In Preparation}}
-\defbibheading{bibliography}{\section*{Publications and Presentations}}
-\defbibheading{article}{\subsection*{Peer-Reviewed Journal Articles}}
-\defbibheading{misc}{\subsection*{Other Publications}}
-\defbibheading{inproceedings}{\subsection*{Conference Papers and Presentations}}
-
-% Bold name
-\def\makenamesetup{%
-	\def\bibnamedelima{~}%
-	\def\bibnamedelimb{ }%
-	\def\bibnamedelimc{ }%
-	\def\bibnamedelimd{ }%
-	\def\bibnamedelimi{ }%
-	\def\bibinitperiod{.}%
-	\def\bibinitdelim{~}%
-	\def\bibinithyphendelim{.-}}
-\newcommand*{\makename}[2]{\begingroup\makenamesetup\xdef#1{#2}\endgroup}
-\newcommand*{\boldname}[3]{%
-	\def\lastname{#1}%
-	\def\firstname{#2}%
-	\def\firstinit{#3}}
-\boldname{}{}{}
-\renewcommand{\mkbibnamegiven}[1]{%
-	\makename{\currname}{#1}%
-	\makename{\findname}{\firstname}%
-	\makename{\findinit}{\firstinit}%
-	\ifboolexpr{ test {\ifdefequal{\currname}{\findname}}%
-		or test {\ifdefequal{\currname}{\findinit}} }%
-	{\mkbibbold{#1}}{#1}%
-}
-\renewcommand{\mkbibnamefamily}[1]{%
-	\makename{\currname}{#1}%
-	\makename{\findname}{\lastname}%
-	\ifboolexpr{ test {\ifdefequal{\currname}{\findname}} }%
-	{\mkbibbold{#1}}{#1}%
-}
-
+% https://tex.stackexchange.com/questions/123805/creating-bibliographies-with-biblatex-and-moderncv
 \defbibenvironment{bibliography}
 {\list
 	{\printtext[labelnumberwidth]{% label format from numeric.bbx
@@ -98,6 +33,7 @@
 	\sloppy\clubpenalty4000\widowpenalty4000}
 {\endlist}
 {\item}
+
 
 % Remove some problematic and/or unnecessary fields
 \AtEveryBibitem{\clearfield{month}\clearfield{pages}\clearfield{day}}

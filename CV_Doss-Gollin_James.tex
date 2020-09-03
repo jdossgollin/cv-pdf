@@ -1,54 +1,94 @@
-% Begin document setup
-\documentclass[11pt,letterpaper,roman]{moderncv}
+\documentclass[fontsize=10.5pt,paper=letter]{scrartcl}
+\usepackage[nochapters]{classicthesis}
+\usepackage[english]{babel}
 
-% Appearance
-\moderncvstyle{classic}
-\moderncvcolor{rice}
-\usepackage[left=0.75in, right=1.25in, top=0.75in, bottom=0.75in]{geometry}% adjust the page margins
+% margins
+\usepackage[left=0.5in, right=0.375in, top=0.5in, bottom=0.75in]{geometry}% adjust the page margins
 
-% Special margins for the CV
-\setlength{\hintscolumnwidth}{1in}  %  width of the column with the dates
-\renewcommand*{\namefont}{\fontsize{20}{22}\mdseries\upshape}
+\RequirePackage{xcolor}
+\definecolor{RiceBlue}{HTML}{00205B} % official Rice blue color -- use for text etc
+\definecolor{RiceGray}{HTML}{7C7E7F} % official Rice gray -- use for Section
+\definecolor{LightGray}{HTML}{E0E2E6} % background color -- do not use for anything else
+\definecolor{BrickRed}{HTML}{C04829} % backup color 
+\definecolor{GrassGreen}{HTML}{359245}
+\definecolor{WarmYellow}{HTML}{E9A139}
 
-% Fonts
-\usepackage[ttscale=.85]{libertine}
-\renewcommand{\sfdefault}{\rmdefault}
+% tabular with custom width
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+\newcommand{\newplace}{\rule{0pt}{3ex}}
+\usepackage{longtable}
+\setlength{\tabcolsep}{0.125in}
+\renewcommand{\arraystretch}{1.25}
+\usepackage{enumitem}
 
-% Page numbers
+% useful macro
+\newcommand{\dotspace}{~~~$\cdotp$~~~}
+
+% Page numbers on the footer
 \usepackage{lastpage}
-\rfoot{\addressfont\itshape\textcolor{gray}{James Doss-Gollin}}
-\lfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of\ \pageref*{LastPage}}}
+\clearscrheadfoot
+\rofoot[\pagemark]{\itshape\textcolor{RiceGray}{Page~\thepage~of~\pageref*{LastPage}}}
+\lofoot{\textcolor{RiceGray}{\itshape James~Doss-Gollin}}
 
-% Use Biblatex -- a lot of configuration needed
-\input{biblatex-config.tex}
+% Use BibLaTeX
+\usepackage{csquotes}
+\usepackage{changepage}
+\usepackage[
+	backend=biber,
+	style=publist,
+	plauthorfirstinit=true,
+	plauthorhandling=highlight,
+	boldyear=false,
+	marginyear=false,
+	plnumbered=reset,
+	doi=true,
+	url=false,
+	isbn=false,
+	maxbibnames=99,
+	sorting=ydnt,
+	defernumbers=true,
+]{biblatex}
+\plauthorname[James]{Doss-Gollin} % bold my name
+% Remove some problematic and/or unnecessary fields
+\AtEveryBibitem{\clearfield{month}\clearfield{pages}\clearfield{day}\clearlist{language}\clearfield{howpublished}}
+\renewbibmacro{in:}{}
+\addbibresource{my-papers/my-papers.bib}
+\setlength\bibitemsep{0.25em}
 
-% add the ORCID symbol
+\usepackage{fontawesome5}
 \usepackage{academicons}
-\newcommand{\orcidsocialsymbol}{{\aiOrcid}~}
 
-%------------------------ personal data -------------------------------------
-\name{James}{Doss-Gollin}
-\email{james.doss-gollin@psu.edu}
-\homepage{jamesdossgollin.me}
-\social[orcid][www.orcid.org/0000-0002-3428-2224]{0000-0002-3428-2224}
-\social[twitter][www.twitter.com/jdossgollin/]{jdossgollin}
-\social[github][www.github.com/jdossgollin/]{jdossgollin}
-%\address{street and number}{postcode city}{country}
+\newcommand{\Header}[1]{\multicolumn{3}{l}{\Large{\spacedlowsmallcaps{#1}}}\\}
+\newenvironment{cvsection}[1]
+{
+    \noindent\begin{longtable}{>{\em}R{1in} L{5in} >{\em}R{0.85in}}
+        \Header{#1}\\
+}{
+    \end{longtable}
+}
+
+% have to load this last
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=BrickRed, linkcolor=BrickRed} 
+
 
 \begin{document}
 
-\makecvtitle{}
-\vspace*{-10mm}
-
+\input{tex/contact.tex}
 \input{tex/appointments.tex}
 \input{tex/education.tex}
 \input{tex/awards.tex}
+\clearpage
 \input{tex/publications.tex}
 \input{tex/talks.tex}
-\input{tex/media.tex}
-\clearpage\input{tex/community.tex}
+\input{tex/outreach.tex}
+\clearpage
+\input{tex/service.tex}
 \input{tex/teaching.tex}
 \input{tex/experience.tex}
-\input{tex/languages.tex}
-
+\input{tex/skills.tex}
 \end{document}

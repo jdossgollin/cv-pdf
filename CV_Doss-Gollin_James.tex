@@ -21,12 +21,17 @@
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 \newcommand{\newplace}{\rule{0pt}{3ex}}
 \usepackage{longtable}
+\usepackage{multirow}
 \setlength{\tabcolsep}{0.125in}
 \renewcommand{\arraystretch}{1.25}
 \usepackage{enumitem}
 
+% margins for publication
+\usepackage{marginnote}
+\reversemarginpar
+
 % useful macro
-\newcommand{\dotspace}{~~~$\cdotp$~~~}
+\newcommand{\dotspace}{\quad}
 
 % Page numbers on the footer
 \usepackage{lastpage}
@@ -42,34 +47,43 @@
 	style=publist,
 	plauthorfirstinit=true,
 	plauthorhandling=highlight,
+	plnumbered=false,
+	labeldateparts=false,
+	%linktitleall=true,
 	boldyear=false,
 	marginyear=false,
-	plnumbered=reset,
 	doi=true,
 	url=false,
 	isbn=false,
 	maxbibnames=99,
-	sorting=ydnt,
-	defernumbers=true,
 ]{biblatex}
 \plauthorname[James]{Doss-Gollin} % bold my name
 % Remove some problematic and/or unnecessary fields
-\AtEveryBibitem{\clearfield{month}\clearfield{pages}\clearfield{day}\clearlist{language}\clearfield{howpublished}}
+\AtEveryBibitem{\clearfield{month}\clearfield{pages}\clearfield{day}\clearfield{year}\clearfield{date}\clearlist{language}\clearfield{howpublished}}
+\AtEveryCitekey{\clearfield{month}\clearfield{pages}\clearfield{day}\clearlist{language}\clearfield{howpublished}}
 \renewbibmacro{in:}{}
 \addbibresource{my-papers/my-papers.bib}
-\setlength\bibitemsep{0.25em}
+% hack the fullcite command so it doesn't hide the year -- we are showing that elsewhere!
+\DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\clearfield{year}\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
 
 \usepackage{fontawesome5}
 \usepackage{academicons}
 
-\newcommand{\Header}[1]{\multicolumn{3}{l}{\Large{\spacedlowsmallcaps{#1}}}\\}
-\newenvironment{cvsection}[1]
-{
-    \noindent\begin{longtable}{>{\em}R{1in} L{5in} >{\em}R{0.85in}}
-        \Header{#1}\\
+\newcommand{\Header}[1]{\\\multicolumn{3}{L{7in}}{\Large{\spacedlowsmallcaps{#1}}}\\}
+\newenvironment{cv}
+{ 
+	\noindent\begin{longtable}{ >{\em}R{1in} L{5in} >{\em}R{0.875in} }
 }{
     \end{longtable}
 }
+
+\newcommand{\publication}[1]{\fullcite{#1} & \citeyear{#1}}
 
 % have to load this last
 \usepackage{hyperref} % Required for adding links	and customizing them
@@ -77,18 +91,17 @@
 
 
 \begin{document}
-
 \input{tex/contact.tex}
-\input{tex/appointments.tex}
-\input{tex/education.tex}
-\input{tex/awards.tex}
-\clearpage
-\input{tex/publications.tex}
-\input{tex/talks.tex}
-\input{tex/outreach.tex}
-\clearpage
-\input{tex/service.tex}
-\input{tex/teaching.tex}
-\input{tex/experience.tex}
-\input{tex/skills.tex}
+\begin{cv}
+	\input{tex/appointments.tex}
+	\input{tex/education.tex}
+	\input{tex/awards.tex}
+	\input{tex/publications.tex}
+	\input{tex/talks.tex}
+	\input{tex/outreach.tex}
+	\input{tex/service.tex}
+	\input{tex/teaching.tex}
+	\input{tex/experience.tex}
+	\input{tex/skills.tex}
+\end{cv}
 \end{document}

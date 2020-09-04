@@ -15,20 +15,14 @@
 
 % tabular with custom width
 \usepackage{array}
+\usepackage{longtable}
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
 \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 \newcommand{\newplace}{\rule{0pt}{3ex}}
-\usepackage{longtable}
-\usepackage{multirow}
 \setlength{\tabcolsep}{0.125in}
-\renewcommand{\arraystretch}{1.25}
-\usepackage{enumitem}
-
-% margins for publication
-\usepackage{marginnote}
-\reversemarginpar
+\renewcommand{\arraystretch}{1.325}
 
 % useful macro
 \newcommand{\dotspace}{\quad}
@@ -39,9 +33,11 @@
 \rofoot[\pagemark]{\itshape\textcolor{RiceGray}{Page~\thepage~of~\pageref*{LastPage}}}
 \lofoot{\textcolor{RiceGray}{\itshape James~Doss-Gollin}}
 
+% better lists
+\usepackage{enumitem}
+
 % Use BibLaTeX
 \usepackage{csquotes}
-\usepackage{changepage}
 \usepackage[
 	backend=biber,
 	style=publist,
@@ -56,6 +52,7 @@
 	url=false,
 	isbn=false,
 	maxbibnames=99,
+	maxcitenames=99,
 ]{biblatex}
 \plauthorname[James]{Doss-Gollin} % bold my name
 % Remove some problematic and/or unnecessary fields
@@ -63,7 +60,7 @@
 \AtEveryCitekey{\clearfield{month}\clearfield{pages}\clearfield{day}\clearlist{language}\clearfield{howpublished}}
 \renewbibmacro{in:}{}
 \addbibresource{my-papers/my-papers.bib}
-% hack the fullcite command so it doesn't hide the year -- we are showing that elsewhere!
+% hack the fullcite command so it doesn't show the year -- we are showing that elsewhere!
 \DeclareCiteCommand{\fullcite}
   {\usebibmacro{prenote}}
   {\clearfield{year}\usedriver
@@ -72,18 +69,19 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
+% icons for the contact info
 \usepackage{fontawesome5}
 \usepackage{academicons}
 
+% macros and environments
 \newcommand{\Header}[1]{\\\multicolumn{3}{L{7in}}{\color{BrickRed}\Large{\spacedlowsmallcaps{#1}}}\\}
+\newcommand{\publication}[1]{\fullcite{#1} & \citeyear{#1}}
 \newenvironment{cv}
 { 
 	\noindent\begin{longtable}{ >{\em}R{1in} L{5in} >{\em}R{0.875in} }
 }{
     \end{longtable}
 }
-
-\newcommand{\publication}[1]{\fullcite{#1} & \citeyear{#1}}
 
 % have to load this last
 \usepackage{hyperref} % Required for adding links	and customizing them

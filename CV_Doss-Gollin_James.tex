@@ -75,7 +75,8 @@
 
 % macros and environments
 \newcommand{\Header}[1]{\\\multicolumn{3}{L{7in}}{\color{BrickRed}\Large{\spacedlowsmallcaps{#1}}}\\}
-\newcommand{\publication}[1]{\fullcite{#1} & \citeyear{#1}}
+\newcommand{\Publication}[1]{\fullcite{#1} & \citeyear{#1}}
+\newcommand{\CVEntry}[3]{#1 & #2 & #3}
 \newenvironment{cv}
 { 
 	\noindent\begin{longtable}{ >{\em}R{1in} L{5in} >{\em}R{0.875in} }

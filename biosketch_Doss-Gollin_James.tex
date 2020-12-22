@@ -77,6 +77,7 @@
 % macros and environments
 \newcommand{\Header}[1]{\\\multicolumn{3}{L{7in}}{\color{BrickRed}\Large{\spacedlowsmallcaps{#1}}}\\}
 \newcommand{\Publication}[1]{\fullcite{#1} & \citeyear{#1}}
+\newcommand{\CVEntry}[3]{#1 & #2 & #3}
 \newenvironment{cv}
 { 
 	\noindent\begin{longtable}{ >{\em}R{1in} L{5in} >{\em}R{0.875in} }
@@ -90,21 +91,13 @@
 
 
 \begin{document}
-\input{tex/contact.tex}
+\input{tex/contact_biosketch.tex}
 \begin{cv}
 	\input{tex/interests.tex}
 	\input{tex/appointments.tex}
 	\input{tex/education.tex}
 	\input{tex/awards.tex}
 	\clearpage
-	\input{tex/publications.tex}
-	\clearpage
-	\input{tex/talks.tex}
-	\clearpage
-	\input{tex/outreach.tex}
-	\input{tex/service.tex}
-	\input{tex/teaching.tex}
-	\input{tex/experience.tex}
-	\input{tex/skills.tex}
+	\input{tex/pubs_biosketch.tex}
 \end{cv}
 \end{document}
